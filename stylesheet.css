@@ -52,6 +52,13 @@ li {
 	color:white;
 	font-size: 20px;
 }
+.list-group{
+	float:left;
+}
+.list{
+	list-style-type: none;
+	text-decoration: none;
+}
 .header{
 	background-color: #000000;
 	position: absolute;
@@ -66,6 +73,7 @@ li {
 .mainbody{
 	text-align: left;
 	padding-top: 75px;
+	width: 80%;
 }
 .frontw{
 	text-align: center;
