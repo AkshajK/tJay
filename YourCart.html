@@ -2,23 +2,24 @@
 <html>
 <head>
 <title>tJay</title>
-<link rel="stylesheet" type="text/css" href="header.css" media="all"/>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" media="all"/>
 </head>
 <body>
 <div class = "header">
 <input type="text" name="query" onclick="func()"/>
-<button onclick="window.location.href='/page2'">Home</button>
-<button onclick="window.location.href='/page2'">Your Items</button>
-<button onclick="window.location.href='/page2'">Your Cart</button>
+<li><a href="home.html" class="headerlia">Your Carts</a></li>
+<li><a href="product.html" class="headerlia">Your Items</a></li>
+<li><a href="yourcart.html" class="headerlia">Home</a></li>
 </div>
 <ul>
-<div class="frontw">
+<div class="mainbody">
 			<fieldset>
 			<legend>Your Cart</legend>
-			
-			<button onclick="window.location.href='/page2'">Checkout</button>
+			<ul class="list-group">
+			<li class="list-group-item"><a href="product.html" class="list">Add Product..</a></li>
+			</ul>
 			</fieldset>
-			</div>
+			<button onclick="window.location.href='/page2'">Checkout</button>
 			</div>
 
 </ul>
