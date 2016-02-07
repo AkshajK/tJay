@@ -1,18 +1,30 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <title>tJay</title>
+
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 </head>
 <body>
 <input type="text" name="query" onclick="func()"/>
 <button onclick="window.location.href='/page2'">Home</button>
 <button onclick="window.location.href='/page2'">Your Items</button>
 <button onclick="window.location.href='/page2'">Your Cart</button>
+<script>
+      var myDataRef = new Firebase('https://burning-heat-3475.firebaseio.com/');
+      function add(product, price, description) {
+      	  
+
+      }
+      function displayChatMessage(name, text) {
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+    </script>
 <ul>
 	<li>
 		<ul>
-				
+
 		</ul>
 	</li>
 	<li>
