@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tJay</title>
+<link rel="stylesheet" type="text/css" href="header.css" media="all"/>
+</head>
+<body>
+<div class = "header">
+<input type="text" name="query" onclick="func()"/>
+<button onclick="window.location.href='/page2'">Home</button>
+<button onclick="window.location.href='/page2'">Your Items</button>
+<button onclick="window.location.href='/page2'">Your Cart</button>
+</div>
+<ul>
+<div class="frontw">
+			<fieldset>
+			<legend>Product</legend>
+			<p>
+			Insert picture here
+			</p>
+			<p>
+			Insert description here
+			</p>
+			<button onclick="window.location.href='/page2'">+ Add to Cart</button>
+			</fieldset>
+			</div>
+			</div>
+
+</ul>
+</body>
+</html>
