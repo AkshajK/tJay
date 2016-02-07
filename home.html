@@ -2,41 +2,42 @@
 <html>
 <head>
 <title>tJay</title>
-
-<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<link rel="stylesheet" type="text/css" href="header.css" media="all"/>
 </head>
 <body>
+<script type="text/javascript">
+      var myDataRef = new Firebase('https://burning-heat-3475.firebaseio.com/');
+      function add() {
+		  var product = $('#product').val();
+          var price = $('#price').val();
+		  var description = $('#description').val();
+      	  myDataRef.push({product: product, price: price, description: description});
+      }
+
+</script>
+<div class = "header">
 <input type="text" name="query" onclick="func()"/>
 <button onclick="window.location.href='/page2'">Home</button>
 <button onclick="window.location.href='/page2'">Your Items</button>
 <button onclick="window.location.href='/page2'">Your Cart</button>
-<script>
-      var myDataRef = new Firebase('https://burning-heat-3475.firebaseio.com/');
-      function add(product, price, description) {
-      	  
-
-      }
-      function displayChatMessage(name, text) {
-        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
-        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-      };
-    </script>
+</div>
 <ul>
-	<li>
-		<ul>
-
-		</ul>
-	</li>
-	<li>
-		<ul>
-
-		</ul>
-	</li>
-	<li>
-		<ul>
-
-		</ul>
-	</li>
+<div class="frontw">
+			<fieldset>
+			<legend>Add an Item</legend>
+			<label for='product'>Product:</label>
+			<input type="text" id="product" name='product'/>
+			<br/> 
+			<label for='price'>Price:</label>
+			<input type="text" id="price" name='price'/>
+			<br/>
+			<label for='description'>Description:</label>
+			<input type="text" id="description" name='description'/>
+			<br/>
+			<button onclick="add()">Submit</button>
+			</fieldset>
+			</div>
+			</div>
 
 </ul>
 </body>
