@@ -2,46 +2,80 @@
 <html>
 <head>
 <title>tJay</title>
-<link rel="stylesheet" type="text/css" href="stylesheet.css" media="all"/>
+
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 </head>
 <body>
-<script type="text/javascript">
-      var myDataRef = new Firebase('https://burning-heat-3475.firebaseio.com/');
-      function add() {
-		  var product = $('#product').val();
-          var price = $('#price').val();
-		  var description = $('#description').val();
-      	  myDataRef.push({product: product, price: price, description: description});
-      }
+<input type="text" name="query" onclick="func()"/>
+<button onclick="window.location.href='/page2'">Home</button>
+<button onclick="window.location.href='/page2'">Your Items</button>
+<button onclick="window.location.href='/page2'">Your Cart</button>
 
-</script>
-<div class="header">
-<image src="logotjay.jpg" class="lefth" height="60px" width="60px">
-<a class="lefth">tJay</a>
-<ul class="headerul">
-<li><input type="text" name="query" onclick="func()" placeholder="Search..."></li>
-<li><a href="home.html" class="headerlia">Your Carts</a></li>
-<li><a href="home.html" class="headerlia">Your Items</a></li>
-<li><a href="home.html" class="headerlia">Home</a></li>
-</ul>
-</div>
-<ul>
-<div class="mainbody">
-			<fieldset>
-			<legend>Add an Item</legend>
-			<label for='product'>Product:</label>
-			<input type="text" id="product" name='product'/>
-			<br/> 
-			<label for='price'>Price:</label>
-			<input type="text" id="price" name='price'/>
-			<br/>
-			<label for='description'>Description:</label>
-			<input type="text" id="description" name='description'/>
-			<br/>
-			<button onclick="add()">Submit</button>
-			</fieldset>
-			</div>
+<ul id="productList">
 
 </ul>
+
+<script>
+    var myDataRef = new Firebase('https://burning-heat-3475.firebaseio.com/');
+	  /*
+	  
+	  */
+	myDataRef.on('value', function(dataSnapshot) {
+		console.log(dataSnapshot.val())
+		snapshotMap = dataSnapshot.val();
+		for(var key in snapshotMap){
+			var productObject = snapshotMap[key];
+			console.log(productObject)
+			addToList(productObject)
+		}
+		
+	});
+	
+	var productList = document.getElementById('productList');
+	
+	
+	function escapeHTML(unsafe) {
+		return unsafe
+			 .replace(/&/g, "&amp;")
+			 .replace(/</g, "&lt;")
+			 .replace(/>/g, "&gt;")
+			 .replace(/"/g, "&quot;")
+			 .replace(/'/g, "&#039;");
+	 }
+		
+	function addToList(shoppingObject){
+	
+			var productChunk = document.createElement('li')
+			var description = document.createElement('p')
+			description.id = "description"
+			var price = document.createElement('p')
+			price.id = "price"
+			var product = document.createElement('p')
+			product.id = "product"
+			
+			description.innerHTML = escapeHTML(shoppingObject.description)
+			price.innerHTML = escapeHTML(shoppingObject.price)
+			product.innerHTML = escapeHTML(shoppingObject.product)
+			
+			productChunk.appendChild(description)
+			productChunk.appendChild(price)
+			productChunk.appendChild(product)
+			
+			productList.appendChild(productChunk)
+			
+			
+	/*
+		shoppingObject is a value from the firebase database that looks like this
+		{
+			description: "",
+			price: 1,
+			product: ""
+		}
+	*/
+	
+	}
+		 
+    </script>
+
 </body>
 </html>
