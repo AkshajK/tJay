@@ -6,14 +6,16 @@
 <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 </head>
 <body>
-<input type="text" name="query" onclick="func()"/>
-<button onclick="window.location.href='/page2'">Home</button>
-<button onclick="window.location.href='/page2'">Your Items</button>
-<button onclick="window.location.href='/page2'">Your Cart</button>
-
-<ul id="productList">
-
+<div class="header">
+<image href="home.html" src="logotjay.jpg" class="lefth" height="60px" width="60px">
+<a class="lefth">tJay</a>
+<ul class="headerul">
+<li><input type="text" name="query" onclick="func()" placeholder="Search..."></li>
+<li><a href="home.html" class="headerlia">Your Carts</a></li>
+<li><a href="product.html" class="headerlia">Your Items</a></li>
+<li><a href="home.html" class="headerlia">Home</a></li>
 </ul>
+</div>
 
 <script>
     var myDataRef = new Firebase('https://burning-heat-3475.firebaseio.com/');
