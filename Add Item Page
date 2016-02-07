@@ -5,6 +5,16 @@
 <link rel="stylesheet" type="text/css" href="header.css" media="all"/>
 </head>
 <body>
+<script type="text/javascript">
+      var myDataRef = new Firebase('https://burning-heat-3475.firebaseio.com/');
+      function add() {
+		  var product = $('#product').val();
+          var price = $('#price').val();
+		  var description = $('#description').val();
+      	  myDataRef.push({product: product, price: price, description: description});
+      }
+
+</script>
 <div class = "header">
 <input type="text" name="query" onclick="func()"/>
 <button onclick="window.location.href='/page2'">Home</button>
@@ -24,7 +34,7 @@
 			<label for='description'>Description:</label>
 			<input type="text" id="description" name='description'/>
 			<br/>
-			<button onclick="window.location.href='/page2'">Submit</button>
+			<button onclick="add()">Submit</button>
 			</fieldset>
 			</div>
 			</div>
