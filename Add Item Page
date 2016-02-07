@@ -2,29 +2,31 @@
 <html>
 <head>
 <title>tJay</title>
-<link rel="stylesheet" type="text/css" href="stylesheet.css" media="all"/>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<link rel="stylesheet" type="text/css" href="header.css" media="all"/>
 </head>
 <body>
 <script type="text/javascript">
       var myDataRef = new Firebase('https://burning-heat-3475.firebaseio.com/');
+	  function getElement(id){
+		return document.getElementById(id)
+	  }
       function add() {
-		  var product = $('#product').val();
-          var price = $('#price').val();
-		  var description = $('#description').val();
+		  var product = getElement('product').value;
+          var price = getElement('price').value;
+		  var description = getElement('description').value;
       	  myDataRef.push({product: product, price: price, description: description});
       }
 
 </script>
-<div class="header">
-<ul>
-<li><a href="home.html">Your Carts</a></li>
-<li><a href="home.html">Your Items</a></li>
-<li><a href="home.html">Home</a></li>
-<li><input type="text" name="query" onclick="func()"/></li>
-</ul>
+<div class = "header">
+<input type="text" name="query" onclick="func()"/>
+<button onclick="window.location.href='/page2'">Home</button>
+<button onclick="window.location.href='/page2'">Your Items</button>
+<button onclick="window.location.href='/page2'">Your Cart</button>
 </div>
 <ul>
-<div class="mainbody">
+<div class="frontw">
 			<fieldset>
 			<legend>Add an Item</legend>
 			<label for='product'>Product:</label>
@@ -38,6 +40,7 @@
 			<br/>
 			<button onclick="add()">Submit</button>
 			</fieldset>
+			</div>
 			</div>
 
 </ul>
